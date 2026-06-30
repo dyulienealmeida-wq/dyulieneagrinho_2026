@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCraft - Agro Forte & Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="player-hud">
+        <div class="hud-item">👤 JOGADOR: <span class="gold-text">AGRO_HERO</span></div>
+        <div class="hud-item">⭐ XP TOTAL: <span id="xp-counter" class="gold-text">0</span></div>
+        <div class="hud-item">🌍 BIOMA: <span id="bioma-status" style="color: #55ff55;">FLORESTA VIVA</span></div>
+    </div>
+
+    <header>
+        <h1>ECOCRAFT: AGRO FORTE</h1>
+        <p class="subtitle">Equilíbrio entre Produção em Alta Escala e Preservação Ambiental</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="agro-info">
+            <div class="card">
+                <div class="pixel-art-placeholder">
+                    <span class="gold-glyph">🌾</span>
+                </div>
+                <h2>[01] AGRO FAMILIAR</h2>
+                <p>Responsável por grande parte dos alimentos que chegam à mesa. Foca na Policultura (diversidade de cultivos) e na conservação local do solo, utilizando técnicas ancestrais combinadas com manejo biológico.</p>
+            </div>
+
+            <div class="card">
+                <div class="pixel-art-placeholder">
+                    <span class="gold-glyph">🚜</span>
+                </div>
+                <h2>[02] AGRONEGÓCIO</h2>
+                <p>A força da exportação e segurança alimentar global. O Agro moderno aplica a Agricultura de Precisão: sensores de solo, drones de mapeamento e plantio direto para produzir o máximo gastando o mínimo de recursos.</p>
+            </div>
+        </section>
+
+        <section class="game-section">
+            <h2>MINIGAME: DEFENSOR DA LAVOURA 🐞</h2>
+            <p style="margin-bottom: 15px; font-size: 0.9rem;">Pragas biológicas estão atacando a plantação de blocos! Clique nelas rapidamente para soltar Joaninhas (Controle Biológico) antes que destruam a colheita!</p>
+            
+            <div class="minigame-controls">
+                <button class="btn-game" id="btn-start-game" onclick="startMinigame()">INICIAR DEFESA</button>
+                <div class="game-stats">
+                    <span>Pontos: <strong id="game-score" class="gold-text">0</strong></span>
+                    <span>Plantações Salvas: <strong id="game-health" style="color: #55ff55;">5/5</strong></span>
+                </div>
+            </div>
+
+            <div class="farm-grid" id="farmGrid">
+                <div class="farm-plot" data-id="1">🌾</div>
+                <div class="farm-plot" data-id="2">🌾</div>
+                <div class="farm-plot" data-id="3">🌾</div>
+                <div class="farm-plot" data-id="4">🌾</div>
+                <div class="farm-plot" data-id="5">🌾</div>
+                <div class="farm-plot" data-id="6">🌾</div>
+                <div class="farm-plot" data-id="7">🌾</div>
+                <div class="farm-plot" data-id="8">🌾</div>
+                <div class="farm-plot" data-id="9">🌾</div>
+            </div>
+        </section>
+
+        <section class="game-section">
+            <h2>MEDIDOR DE BIOMA 🌍</h2>
+            <p style="margin-bottom: 20px; font-size: 0.9rem;">Suas escolhas definem o ecossistema. Responda com honestidade:</p>
+            
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <p><strong>1. Como você gerencia o consumo de água na irrigação ou rotina?</strong></p>
+                    <button class="btn-choice" onclick="updateBiome(-20)">Uso água corrente sem controle ou gotejadores antigos</button>
+                    <button class="btn-choice" onclick="updateBiome(20)">Tenho sistemas de captação de água da chuva / gotejamento programado</button>
+                </div>
+                
+                <div class="quiz-question" style="margin-top: 15px;">
+                    <p><strong>2. Qual a sua estratégia para combater pragas na plantação?</strong></p>
+                    <button class="btn-choice" onclick="updateBiome(-20)">Uso defensivos químicos pesados ao menor sinal de insetos</button>
+                    <button class="btn-choice" onclick="updateBiome(20)">Uso controle biológico (joaninhas, armadilhas naturais) e rotação de culturas</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="game-section crafting-section">
+            <h2>BANCADA DE CRIAÇÃO SUSTENTÁVEL 🔨</h2>
+            <p style="margin-bottom: 20px; font-size: 0.9rem;">Combine os blocos corretos para forjar tecnologias ecológicas para a fazenda:</p>
+            
+            <div class="crafting-container">
+                <div class="grid-slots">
+                    <div class="slot" id="slot1" onclick="toggleSlot('slot1')">🟫</div>
+                    <div class="slot" id="slot2" onclick="toggleSlot('slot2')">💧</div>
+                </div>
+
+                <div class="arrow">➡️</div>
+
+                <div class="result-slot" id="resultSlot">
+                    ❓
+                    <div class="result-label" id="resultLabel">Vazio</div>
+                </div>
+            </div>
+
+            <button class="btn-game" onclick="craftItem()">CRAFTAR TECNOLOGIA</button>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2026 EcoCraft Agro. Mod Pack: Sustentabilidade Ativa.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
